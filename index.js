@@ -16,8 +16,6 @@ function addComment() {
   newAvis.appendChild(newClient);
   newAvis.appendChild(newText);
 
-  let section = document.querySelector("section");
-
   section.appendChild(newAvis);
 }
 
@@ -26,18 +24,18 @@ function addComment() {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (firstName.value === "" || lastName.value === "" || message.value === "") {
-    document.getElementById("errorMessage").innerHTML =
-      "Tous les champs doivent être remplis";
+    errorMessage.style.display = "block";
   } else {
+    errorMessage.style.display = "none";
     addComment();
 
-    clearFormulaire();
+    clearForm();
   }
 });
 
 //remise à 0 du formulaire
 
-function clearFormulaire() {
+function clearForm() {
   document.getElementById("first-name").value = "";
   document.getElementById("last-name").value = "";
   document.getElementById("message").value = "";
